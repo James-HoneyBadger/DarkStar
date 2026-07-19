@@ -325,7 +325,7 @@ fn init_tracing() {
     });
 }
 
-/// Ensure a self-signed certificate exists under the Zayfer config
+/// Ensure a self-signed certificate exists under the DarkStar config
 /// directory and return `(cert_path, key_path)` suitable for passing to
 /// [`serve_with_auth`].
 ///
@@ -342,7 +342,7 @@ pub(crate) fn ensure_self_signed_cert(host: &str) -> Result<(String, String)> {
 
     let base: PathBuf = dirs::home_dir()
         .ok_or_else(|| anyhow::anyhow!("Could not resolve home directory for self-signed cert"))?
-        .join(".hb_zayfer")
+        .join(".darkstar")
         .join("tls");
     fs::create_dir_all(&base)
         .with_context(|| format!("Failed to create TLS directory {}", base.display()))?;
@@ -1468,7 +1468,7 @@ mod tests {
             .unwrap();
 
         let data = json_response(router, request).await;
-        assert_eq!(data["brand_name"], "Zayfer Vault");
+        assert_eq!(data["brand_name"], "DarkStar");
         assert!(data["version"].as_str().unwrap().starts_with("1."));
     }
 
@@ -1561,7 +1561,7 @@ mod tests {
             .lock()
             .unwrap_or_else(|poisoned| poisoned.into_inner());
         let temp = TempDir::new().unwrap();
-        std::env::set_var("HB_ZAYFER_HOME", temp.path());
+        std::env::set_var("DARKSTAR_HOME", temp.path());
 
         let router = build_platform_router().unwrap();
         let encrypt_request = Request::builder()
@@ -1596,7 +1596,7 @@ mod tests {
             .lock()
             .unwrap_or_else(|poisoned| poisoned.into_inner());
         let temp = TempDir::new().unwrap();
-        std::env::set_var("HB_ZAYFER_HOME", temp.path());
+        std::env::set_var("DARKSTAR_HOME", temp.path());
 
         let router = build_platform_router().unwrap();
         let request = Request::builder()
@@ -1622,7 +1622,7 @@ mod tests {
             .lock()
             .unwrap_or_else(|poisoned| poisoned.into_inner());
         let temp = TempDir::new().unwrap();
-        std::env::set_var("HB_ZAYFER_HOME", temp.path());
+        std::env::set_var("DARKSTAR_HOME", temp.path());
 
         let router = build_platform_router().unwrap();
         let request = Request::builder()
@@ -1644,7 +1644,7 @@ mod tests {
             .lock()
             .unwrap_or_else(|poisoned| poisoned.into_inner());
         let temp = TempDir::new().unwrap();
-        std::env::set_var("HB_ZAYFER_HOME", temp.path());
+        std::env::set_var("DARKSTAR_HOME", temp.path());
 
         let router = build_platform_router().unwrap();
         let output_path = temp.path().join("native-web-backup.hbzf");

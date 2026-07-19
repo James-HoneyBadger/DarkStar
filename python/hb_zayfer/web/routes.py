@@ -1,4 +1,4 @@
-"""API routes for the HB_Zayfer web interface."""
+"""API routes for the DarkStar web interface."""
 
 from __future__ import annotations
 

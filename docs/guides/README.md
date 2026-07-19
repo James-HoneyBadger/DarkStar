@@ -1,6 +1,6 @@
 # Guides
 
-User-focused walkthroughs and operational guides for Zayfer Vault.
+User-focused walkthroughs and operational guides for DarkStar.
 
 - [QUICKSTART.md](QUICKSTART.md)
 - [USER_GUIDE.md](USER_GUIDE.md)

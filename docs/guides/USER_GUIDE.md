@@ -1,9 +1,9 @@
-# Zayfer Vault User Guide
+# DarkStar User Guide
 
-Complete guide for users of the Zayfer Vault encryption suite. Covers all four
+Complete guide for users of the DarkStar encryption suite. Covers all four
 interfaces (Desktop GUI, CLI, Python API, Web UI) and common workflows.
 
-**Version 1.0.1** — Zayfer Vault Encryption Suite
+**Version 1.0.1** — DarkStar Encryption Suite
 
 ---
 
@@ -30,9 +30,9 @@ interfaces (Desktop GUI, CLI, Python API, Web UI) and common workflows.
 
 ## Introduction
 
-### What is Zayfer Vault?
+### What is DarkStar?
 
-Zayfer Vault is a comprehensive encryption toolkit that provides:
+DarkStar is a comprehensive encryption toolkit that provides:
 
 - **File encryption** with AES-256-GCM or ChaCha20-Poly1305
 - **Public-key cryptography** using RSA, Ed25519, and X25519
@@ -61,11 +61,11 @@ ensuring memory safety and high performance.
 | **Web UI** | Browser access, REST API integration | `./run.sh web` |
 | **Python API** | Programmatic use, embedding | `import hb_zayfer` |
 
-All interfaces share the same keystore at `~/.hb_zayfer/`.
+All interfaces share the same keystore at `~/.darkstar/`.
 
 ### Documentation Map
 
-If you are new to Zayfer Vault or to encryption in general, use this order:
+If you are new to DarkStar or to encryption in general, use this order:
 
 1. [`QUICKSTART.md`](QUICKSTART.md) — fastest way to launch and verify the app
 2. [`TUTORIAL_ENCRYPTION_PASSWORDS.md`](TUTORIAL_ENCRYPTION_PASSWORDS.md) — safe password and encryption walkthrough
@@ -89,10 +89,10 @@ Before storing important data, make sure you have done the following:
 
 ### First Launch
 
-Zayfer Vault creates:
+DarkStar creates:
 
 ```
-~/.hb_zayfer/
+~/.darkstar/
 ├── config.toml           # Configuration (TOML)
 ├── keys/
 │   ├── private/          # Encrypted private keys (AES-256-GCM + Argon2id)
@@ -102,7 +102,7 @@ Zayfer Vault creates:
 └── audit.json            # Tamper-evident audit log
 ```
 
-Override with `HB_ZAYFER_HOME` environment variable.
+Override with `DARKSTAR_HOME` environment variable.
 
 ### Basic Workflow
 
@@ -447,7 +447,7 @@ Forgotten passphrases cannot be recovered — Argon2id + AES-256-GCM is irrevers
 
 ### Audit Log
 
-Zayfer Vault logs all cryptographic operations with a tamper-evident hash chain.
+DarkStar logs all cryptographic operations with a tamper-evident hash chain.
 
 #### GUI
 
@@ -547,7 +547,7 @@ hb-zayfer config path                    # Show config file location
 ### Custom Keystore Location
 
 ```bash
-export HB_ZAYFER_HOME="/mnt/secure/.hb_zayfer"
+export DARKSTAR_HOME="/mnt/secure/.darkstar"
 hb-zayfer keys list   # Uses custom location
 ```
 
@@ -555,7 +555,7 @@ hb-zayfer keys list   # Uses custom location
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `HB_ZAYFER_HOME` | `~/.hb_zayfer` | Data directory for keys, contacts, audit logs, and config |
+| `DARKSTAR_HOME` | `~/.darkstar` | Data directory for keys, contacts, audit logs, and config |
 | `HB_ZAYFER_API_TOKEN` | *(unset)* | Bearer token for web API authentication. When set, all requests must include `Authorization: Bearer <token>` |
 | `HB_ZAYFER_RATE_LIMIT` | `60` | Maximum API requests per client IP per window |
 | `HB_ZAYFER_RATE_WINDOW` | `60` | Rate-limit window duration in seconds |
@@ -627,9 +627,9 @@ See [PYTHON_API.md](../reference/PYTHON_API.md) for the full reference.
 #### "Permission denied"
 
 ```bash
-chmod 700 ~/.hb_zayfer/
-chmod 700 ~/.hb_zayfer/keys/private/
-chmod 600 ~/.hb_zayfer/keys/private/*.key
+chmod 700 ~/.darkstar/
+chmod 700 ~/.darkstar/keys/private/
+chmod 600 ~/.darkstar/keys/private/*.key
 ```
 
 #### "Wrong passphrase"

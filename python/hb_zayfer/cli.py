@@ -1,4 +1,4 @@
-"""Zayfer Vault CLI — Click-based command-line interface.
+"""DarkStar CLI — Click-based command-line interface.
 
 Entry point: ``hb-zayfer`` (installed via pip).
 """
@@ -130,7 +130,7 @@ def _prompt_passphrase(confirm: bool = False) -> bytes:
 @click.group()
 @click.version_option(version=hbz.version(), prog_name="hb-zayfer")
 def cli() -> None:
-    """Zayfer Vault — Encryption / Decryption Suite."""
+    """DarkStar — Encryption / Decryption Suite."""
 
 
 # ---------------------------------------------------------------------------

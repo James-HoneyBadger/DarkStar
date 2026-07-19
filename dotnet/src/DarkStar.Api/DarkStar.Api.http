@@ -1,0 +1,117 @@
+@DarkStar.Api_HostAddress = http://localhost:5054
+
+GET {{DarkStar.Api_HostAddress}}/api/health
+Accept: application/json
+
+###
+
+GET {{DarkStar.Api_HostAddress}}/api/workspace/summary
+Accept: application/json
+
+###
+
+POST {{DarkStar.Api_HostAddress}}/api/crypto/encrypt-text
+Content-Type: application/json
+
+{
+	"plaintext": "hello darkstar",
+	"passphrase": "super-secret",
+	"algorithm": "aes256gcm"
+}
+
+###
+
+POST {{DarkStar.Api_HostAddress}}/api/crypto/decrypt-text
+Content-Type: application/json
+
+{
+	"ciphertextBase64": "REPLACE_WITH_CIPHERTEXT",
+	"passphrase": "super-secret",
+	"algorithm": "aes256gcm"
+}
+
+###
+
+POST {{DarkStar.Api_HostAddress}}/api/crypto/sign-text
+Content-Type: application/json
+
+{
+	"message": "hello darkstar",
+	"secret": "super-secret"
+}
+
+###
+
+POST {{DarkStar.Api_HostAddress}}/api/crypto/verify-text
+Content-Type: application/json
+
+{
+	"message": "hello darkstar",
+	"secret": "super-secret",
+	"signatureBase64": "REPLACE_WITH_SIGNATURE"
+}
+
+###
+
+POST {{DarkStar.Api_HostAddress}}/api/crypto/encrypt-file
+Content-Type: application/json
+
+{
+	"inputPath": "/tmp/darkstar-input.txt",
+	"outputPath": "/tmp/darkstar-input.txt.dstar",
+	"passphrase": "super-secret",
+	"algorithm": "aes256gcm"
+}
+
+###
+
+POST {{DarkStar.Api_HostAddress}}/api/crypto/decrypt-file
+Content-Type: application/json
+
+{
+	"inputPath": "/tmp/darkstar-input.txt.dstar",
+	"outputPath": "/tmp/darkstar-input.dec.txt",
+	"passphrase": "super-secret",
+	"algorithm": "aes256gcm"
+}
+
+###
+
+GET {{DarkStar.Api_HostAddress}}/api/keys
+Accept: application/json
+
+###
+
+POST {{DarkStar.Api_HostAddress}}/api/keys
+Content-Type: application/json
+
+{
+	"algorithm": "aes256gcm",
+	"label": "primary"
+}
+
+###
+
+DELETE {{DarkStar.Api_HostAddress}}/api/keys/REPLACE_FINGERPRINT
+
+###
+
+GET {{DarkStar.Api_HostAddress}}/api/contacts
+Accept: application/json
+
+###
+
+POST {{DarkStar.Api_HostAddress}}/api/contacts
+Content-Type: application/json
+
+{
+	"name": "alice",
+	"email": "alice@example.com",
+	"notes": "friend"
+}
+
+###
+
+DELETE {{DarkStar.Api_HostAddress}}/api/contacts/alice
+
+###

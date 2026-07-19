@@ -1,4 +1,4 @@
-# cargo-deny configuration for Zayfer Vault.
+# cargo-deny configuration for DarkStar.
 #
 # Three checks gate the supply chain:
 #   advisories — RUSTSEC vulnerabilities and unmaintained crates
@@ -20,7 +20,7 @@ all-features = false
 version = 2
 ignore = [
     # rsa: Marvin timing attack — no upstream fix available; mitigated
-    # by the fact that Zayfer Vault uses RSA only on local files where
+    # by the fact that DarkStar uses RSA only on local files where
     # an attacker cannot observe per-operation timing.
     "RUSTSEC-2023-0071",
     # number_prefix: unmaintained — pulled in only via indicatif's
@@ -31,7 +31,7 @@ ignore = [
     # 0.7 still uses the wrapper but the code path is identical.
     "RUSTSEC-2025-0134",
     # rand: unsoundness only when a custom logger is installed —
-    # Zayfer Vault uses the default rand backends.
+    # DarkStar uses the default rand backends.
     "RUSTSEC-2026-0097",
 ]
 
@@ -59,7 +59,7 @@ confidence-threshold = 0.8
 # non-permissive license is acceptable for this project.
 exceptions = [
     # Sequoia is the OpenPGP backbone; its LGPL-2.0-or-later licence
-    # is acceptable because Zayfer Vault dynamically links it as a
+    # is acceptable because DarkStar dynamically links it as a
     # Rust dep — downstream users are not redistributing modified
     # sequoia, only consuming its public API.
     { crate = "sequoia-openpgp", allow = ["LGPL-2.0-or-later"] },

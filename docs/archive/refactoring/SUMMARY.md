@@ -1,6 +1,6 @@
 # Refactoring Summary
 
-**Quick Overview**: One-page summary of the HB_Zayfer refactoring initiative
+**Quick Overview**: One-page summary of the DarkStar refactoring initiative
 
 ---
 

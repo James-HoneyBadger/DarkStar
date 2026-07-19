@@ -1,7 +1,7 @@
-//! HB_Zayfer Core — Cryptographic operations library.
+//! DarkStar Core — Cryptographic operations library.
 //!
 //! This crate provides all cryptographic primitives and key management for the
-//! HB_Zayfer encryption/decryption suite:
+//! DarkStar encryption/decryption suite:
 //!
 //! - **AES-256-GCM** — fast authenticated encryption
 //! - **ChaCha20-Poly1305** — modern authenticated encryption

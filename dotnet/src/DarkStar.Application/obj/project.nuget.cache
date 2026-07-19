@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "PDyzc448xHI=",
+  "success": true,
+  "projectFilePath": "/home/james/DarkStar/dotnet/src/DarkStar.Application/DarkStar.Application.csproj",
+  "expectedPackageFiles": [
+    "/home/james/DarkStar/dotnet/.cli-home/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.1/microsoft.extensions.dependencyinjection.abstractions.8.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

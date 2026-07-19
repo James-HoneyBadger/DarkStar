@@ -18,7 +18,7 @@ use serde_json::json;
 
 mod platform_server;
 
-/// HB_Zayfer — Encryption/Decryption Suite
+/// DarkStar — Encryption/Decryption Suite
 ///
 /// A powerful, full-featured cryptographic toolkit supporting
 /// RSA, AES-256-GCM, ChaCha20-Poly1305, Ed25519, X25519, and OpenPGP.
@@ -173,7 +173,7 @@ enum Commands {
         /// (env: `HBZ_TLS_KEY`)
         #[arg(long, value_name = "PATH", env = "HBZ_TLS_KEY")]
         tls_key: Option<String>,
-        /// Generate (or reuse) a self-signed certificate under the Zayfer
+        /// Generate (or reuse) a self-signed certificate under the DarkStar
         /// config directory and serve over HTTPS. Convenient for local use;
         /// browsers will warn until the certificate is trusted manually.
         /// Mutually exclusive with --tls-cert/--tls-key.

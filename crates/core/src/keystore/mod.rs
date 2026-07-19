@@ -1,8 +1,8 @@
 //! Key storage and contact management.
 //!
-//! Manages keys on disk at `~/.hb_zayfer/` with the structure:
+//! Manages keys on disk at `~/.darkstar/` with the structure:
 //! ```text
-//! ~/.hb_zayfer/
+//! ~/.darkstar/
 //!   keys/private/<fingerprint>.key  (encrypted)
 //!   keys/public/<fingerprint>.pub
 //!   keyring.json
@@ -43,14 +43,14 @@ pub struct KeyStore {
 impl KeyStore {
     /// Open or create a keystore at the default location.
     ///
-    /// Checks `HB_ZAYFER_HOME` env-var first, then falls back to `~/.hb_zayfer/`.
+    /// Checks `DARKSTAR_HOME` env-var first, then falls back to `~/.darkstar/`.
     pub fn open_default() -> HbResult<Self> {
-        if let Ok(custom) = std::env::var("HB_ZAYFER_HOME") {
+        if let Ok(custom) = std::env::var("DARKSTAR_HOME") {
             return Self::open(PathBuf::from(custom));
         }
         let home =
             dirs::home_dir().ok_or_else(|| HbError::Io("Home directory not found".into()))?;
-        Self::open(home.join(".hb_zayfer"))
+        Self::open(home.join(".darkstar"))
     }
 
     /// Open or create a keystore at the specified path.

@@ -1,6 +1,6 @@
 # Web & Desktop GUI Reference
 
-This guide reflects the **current runtime split** in Zayfer Vault v1.1.1:
+This guide reflects the **current runtime split** in DarkStar v1.1.1:
 
 - **Desktop GUI**: PySide6 application backed by the native Rust extension
 - **Web platform**: browser UI served by the **Rust-native** `serve` command
@@ -89,7 +89,7 @@ When using that compatibility path directly, these environment variables are sup
 
 | Variable | Meaning |
 |----------|---------|
-| `HB_ZAYFER_HOME` | Shared app data directory override |
+| `DARKSTAR_HOME` | Shared app data directory override |
 | `HB_ZAYFER_PORT` | Default port for the Python compatibility server |
 | `HB_ZAYFER_API_TOKEN` | Optional bearer token requirement |
 | `HB_ZAYFER_RATE_LIMIT` / `HB_ZAYFER_RATE_WINDOW` | Optional rate limiting for the Python backend |

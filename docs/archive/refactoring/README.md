@@ -1,6 +1,6 @@
 # Refactoring Documentation
 
-This directory contains all documentation related to the HB_Zayfer architectural refactoring initiative.
+This directory contains all documentation related to the DarkStar architectural refactoring initiative.
 
 ## Quick Links
 
@@ -16,7 +16,7 @@ This directory contains all documentation related to the HB_Zayfer architectural
 
 ### What Is This?
 
-A comprehensive refactoring of HB_Zayfer to address technical debt and improve maintainability. The initiative runs for 10 weeks (March 8 - May 3, 2026) and targets:
+A comprehensive refactoring of DarkStar to address technical debt and improve maintainability. The initiative runs for 10 weeks (March 8 - May 3, 2026) and targets:
 
 - ✅ **60-70% reduction** in code duplication
 - ✅ **Trait-based architecture** for extensibility
@@ -44,7 +44,7 @@ See [PROGRESS.md](PROGRESS.md) for detailed task status.
 
 **Read**: [SUMMARY.md](SUMMARY.md) for quick overview
 
-### 👨‍💻 Application Developers (Using HB_Zayfer)
+### 👨‍💻 Application Developers (Using DarkStar)
 
 **Impact on you**: Some internal APIs change, but migration is smooth.
 

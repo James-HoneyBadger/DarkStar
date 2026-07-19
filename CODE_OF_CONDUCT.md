@@ -3,11 +3,11 @@
 ## Our Commitment
 
 We are committed to providing a welcoming and inspiring community for all.
-Zayfer Vault is dedicated to fostering an open, friendly, and collaborative
+DarkStar is dedicated to fostering an open, friendly, and collaborative
 environment that embraces diversity and inclusivity.
 
 This Code of Conduct outlines expectations for participation in our community
-and applies to all spaces managed by the Zayfer Vault project, including but not
+and applies to all spaces managed by the DarkStar project, including but not
 limited to:
 
 - GitHub repositories and discussions
@@ -123,7 +123,7 @@ These are excellent resources for building inclusive communities.
 
 We actively welcome and encourage participation from people of all backgrounds.
 We believe that diversity of thought, experience, and perspective strengthens
-our community and makes Zayfer Vault better for everyone.
+our community and makes DarkStar better for everyone.
 
 We are committed to:
 
@@ -156,4 +156,4 @@ their best.
 **Version:** 1.0
 
 For the latest version, visit:
-https://github.com/James-HoneyBadger/HB_Zayfer/blob/main/CODE_OF_CONDUCT.md
+https://github.com/James-HoneyBadger/DarkStar/blob/main/CODE_OF_CONDUCT.md

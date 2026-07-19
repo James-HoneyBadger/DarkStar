@@ -119,7 +119,7 @@ mod tests {
 
     #[test]
     fn test_compress_decompress_roundtrip() {
-        let data = b"Hello, HB_Zayfer! ".repeat(100);
+        let data = b"Hello, DarkStar! ".repeat(100);
         let compressed = compress(&data).unwrap();
         // Should be smaller than original (highly compressible repeated data)
         assert!(compressed.len() < data.len());

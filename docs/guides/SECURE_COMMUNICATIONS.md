@@ -1,6 +1,6 @@
 # Secure Communications Tutorial
 
-A step-by-step guide to establishing secure communication channels using Zayfer Vault. Learn how to exchange keys safely, encrypt messages, verify identities, and maintain operational security.
+A step-by-step guide to establishing secure communication channels using DarkStar. Learn how to exchange keys safely, encrypt messages, verify identities, and maintain operational security.
 
 ---
 
@@ -48,7 +48,7 @@ Does NOT protect against:
 
 ### A Note on the Messaging View
 
-Zayfer Vault's desktop Messaging view is designed for **short, shareable
+DarkStar's desktop Messaging view is designed for **short, shareable
 messages**. It creates a JSON message package that includes metadata such as the
 recipient fingerprint, optional sender fingerprint, and a base64-encoded HBZF
 ciphertext payload.
@@ -78,7 +78,7 @@ rather than the messaging panel.
 #### Phase 1: Alice Generates Keys
 
 ```bash
-# Alice activates Zayfer Vault
+# Alice activates DarkStar
 source ~/.cargo/env  # Load Rust environment
 source .venv/bin/activate  # Activate virtual environment
 
@@ -152,7 +152,7 @@ scp alice-*.pub alice@example.com:/var/www/html/keys/
 gpg --encrypt --recipient old-contact@example.com alice-signing-2026.pub
 
 # Option C: Post fingerprint publicly
-echo "My Zayfer Vault key fingerprints:"
+echo "My DarkStar key fingerprints:"
 echo "Signing: a1b2c3d4e5f6789012345678901234567890abcdef"
 echo "Encryption: e5f6g7h8i9j0123456789012345678901234567890abc"
 ```
@@ -372,7 +372,7 @@ sha256sum sensitive-docs.tar.gz
 # Step 6: Extract
 tar xzf sensitive-docs.tar.gz
 
-# Step 7: Secure cleanup (using Zayfer Vault's built-in shredder)
+# Step 7: Secure cleanup (using DarkStar's built-in shredder)
 hb-zayfer shred sensitive-docs.hbzf --passes 7
 hb-zayfer shred sensitive-docs.tar.gz --passes 7
 # Keep only extracted documents
@@ -466,7 +466,7 @@ hb-zayfer shred meeting-notice.txt
 Instead of encrypting separately for each recipient, use a shared group password:
 
 ```bash
-# Step 1: Generate strong random password using Zayfer Vault
+# Step 1: Generate strong random password using DarkStar
 hb-zayfer passgen --length 32
 # Or generate a memorable passphrase
 hb-zayfer passgen --passphrase --words 8
@@ -590,7 +590,7 @@ To achieve forward secrecy (past messages stay secure if current key is compromi
 5. **Destroy plaintext after reading**
 
 ```bash
-# Secure file destruction after reading (Zayfer Vault built-in shredder)
+# Secure file destruction after reading (DarkStar built-in shredder)
 hb-zayfer shred decrypted-message.txt --passes 7
 
 # Encrypted file can be kept (can't be decrypted after key deletion)
@@ -707,7 +707,7 @@ upload-file encrypted.hbzf
 ```
 Subject: URGENT: Key Compromise Notification
 
-My Zayfer Vault signing key (fingerprint: a1b2c3d4...) may be compromised.
+My DarkStar signing key (fingerprint: a1b2c3d4...) may be compromised.
 
 DO NOT:
 - Trust messages signed with this key after 2026-03-08
@@ -893,7 +893,7 @@ hb-zayfer keygen ed25519 --label "Open Source Projects 2026"
 ```bash
 # No backup
 # OR
-cp -r ~/.hb_zayfer/ ~/backup/
+cp -r ~/.darkstar/ ~/backup/
 # Unencrypted copy of all your keys!
 ```
 

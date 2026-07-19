@@ -277,7 +277,7 @@ class MainWindow(QMainWindow):
 
         box = QMessageBox(self)
         box.setIcon(QMessageBox.Icon.Information)
-        box.setWindowTitle("Welcome to Zayfer Vault")
+        box.setWindowTitle("Welcome to DarkStar")
         box.setText("No keys were found yet.")
         box.setInformativeText(
             "Start by generating your first key pair, or review settings before encrypting with a passphrase."

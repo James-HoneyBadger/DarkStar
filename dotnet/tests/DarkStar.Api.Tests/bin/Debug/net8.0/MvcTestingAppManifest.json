@@ -1,0 +1,6 @@
+{
+  "DarkStar.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/home\/james\/DarkStar\/dotnet\/src\/DarkStar.Api",
+  "DarkStar.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/home\/james\/DarkStar\/dotnet\/src\/DarkStar.Application",
+  "DarkStar.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/home\/james\/DarkStar\/dotnet\/src\/DarkStar.Domain",
+  "DarkStar.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/home\/james\/DarkStar\/dotnet\/src\/DarkStar.Infrastructure"
+}

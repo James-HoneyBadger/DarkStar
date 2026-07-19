@@ -1,8 +1,8 @@
 # Security Design & Audit Notes
 
-**Zayfer Vault v1.1.1**
+**DarkStar v1.1.1**
 
-This document details the security posture of Zayfer Vault: algorithms chosen,
+This document details the security posture of DarkStar: algorithms chosen,
 key management practices, memory protections, supply-chain considerations,
 and known limitations.
 
@@ -243,7 +243,7 @@ Optional deflate compression is applied inside the HBZF container:
   inside the encrypted payload, so an attacker cannot determine whether
   compression was used
 - **CRIME/BREACH note**: Compression of secret data alongside attacker-
-  controlled data can leak information via ciphertext length. Zayfer Vault's
+  controlled data can leak information via ciphertext length. DarkStar's
   HBZF format does not mix user-controlled AAD into the compressed payload,
   mitigating this vector. However, file-size side channels remain for any
   encrypted format.
@@ -289,10 +289,10 @@ upstream version exists; impact in our threat model is bounded.
 
 | Advisory | Crate | Status | Why ignored |
 |---|---|---|---|
-| RUSTSEC-2023-0071 | `rsa` 0.9.x | No upstream fix | Marvin timing attack on RSA decryption. Pulled in transitively via `sequoia-openpgp` and our own RSA wrappers. Mitigation: Zayfer never decrypts attacker-controlled RSA ciphertexts in a network-loop fast enough for the attack window; the CLI/web flows are interactive and rate-limited. We will replace `rsa` once a fixed upstream is available. |
+| RUSTSEC-2023-0071 | `rsa` 0.9.x | No upstream fix | Marvin timing attack on RSA decryption. Pulled in transitively via `sequoia-openpgp` and our own RSA wrappers. Mitigation: DarkStar never decrypts attacker-controlled RSA ciphertexts in a network-loop fast enough for the attack window; the CLI/web flows are interactive and rate-limited. We will replace `rsa` once a fixed upstream is available. |
 | RUSTSEC-2025-0119 | `number_prefix` | Unmaintained | Transitive (display formatting only). No security exposure. |
 | RUSTSEC-2025-0134 | `rustls-pemfile` | Unmaintained | Transitive via `axum-server`. PEM parsing is local-disk only (operator-supplied cert files); not a remote attack surface. |
-| RUSTSEC-2026-0097 | `rand` 0.8/0.9 | Unsound with custom logger | We never install a custom logger that interacts with `rand`; the default Zayfer process uses tokio + tracing only. |
+| RUSTSEC-2026-0097 | `rand` 0.8/0.9 | Unsound with custom logger | We never install a custom logger that interacts with `rand`; the default DarkStar process uses tokio + tracing only. |
 
 If a new advisory appears that is **not** in this table, treat it as
 release-blocking until triaged.

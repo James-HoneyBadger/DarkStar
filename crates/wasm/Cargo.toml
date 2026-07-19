@@ -6,7 +6,7 @@ version.workspace = true
 edition.workspace = true
 authors.workspace = true
 license.workspace = true
-description = "WebAssembly bindings for HB_Zayfer cryptographic operations"
+description = "WebAssembly bindings for DarkStar cryptographic operations"
 
 [lib]
 crate-type = ["cdylib", "rlib"]

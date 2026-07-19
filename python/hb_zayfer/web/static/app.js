@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Zayfer Vault – Web UI Application Logic (Vanilla JS)
+   DarkStar – Web UI Application Logic (Vanilla JS)
    ========================================================================== */
 
 const API = "/api";

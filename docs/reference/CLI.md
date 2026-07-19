@@ -1,6 +1,6 @@
 # CLI Reference
 
-This page documents the **current Rust CLI** shipped with Zayfer Vault v1.1.1.
+This page documents the **current Rust CLI** shipped with DarkStar v1.1.1.
 It matches the launcher paths used by the project today:
 
 ```bash
@@ -99,8 +99,8 @@ Recipient mode and compression:
 ### Backup, audit, and config
 
 ```bash
-./run.sh cli backup create --output ~/.hb_zayfer/backup.hbzf --label nightly
-./run.sh cli backup verify --input ~/.hb_zayfer/backup.hbzf
+./run.sh cli backup create --output ~/.darkstar/backup.hbzf --label nightly
+./run.sh cli backup verify --input ~/.darkstar/backup.hbzf
 ./run.sh cli audit show --limit 20
 ./run.sh cli audit verify
 ./run.sh cli config list
@@ -210,7 +210,7 @@ Browser-facing config aliases such as `cipher`, `kdf`, and `clipboard_auto_clear
 
 | Variable | Purpose |
 |----------|---------|
-| `HB_ZAYFER_HOME` | Override the default workspace at `~/.hb_zayfer/` |
+| `DARKSTAR_HOME` | Override the default workspace at `~/.darkstar/` |
 
 For headless GUI smoke tests, CI also uses `HB_ZAYFER_SKIP_ONBOARDING=1`, but that is not required for normal CLI use.
 

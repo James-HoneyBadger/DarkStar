@@ -1,6 +1,6 @@
-//! Configuration management for HB_Zayfer.
+//! Configuration management for DarkStar.
 //!
-//! Provides persistent configuration storage at `~/.hb_zayfer/config.toml`
+//! Provides persistent configuration storage at `~/.darkstar/config.toml`
 //! with support for setting defaults and user preferences.
 
 use std::fs;
@@ -163,7 +163,7 @@ impl Default for Config {
 }
 
 impl Config {
-    /// Load configuration from the default location (~/.hb_zayfer/config.toml).
+    /// Load configuration from the default location (~/.darkstar/config.toml).
     pub fn load_default() -> HbResult<Self> {
         let config_path = Self::default_path()?;
         if config_path.exists() {
@@ -215,14 +215,14 @@ impl Config {
         Ok(())
     }
 
-    /// Get the default config path (~/.hb_zayfer/config.toml).
+    /// Get the default config path (~/.darkstar/config.toml).
     pub fn default_path() -> HbResult<PathBuf> {
-        let base = std::env::var("HB_ZAYFER_HOME")
+        let base = std::env::var("DARKSTAR_HOME")
             .map(PathBuf::from)
             .unwrap_or_else(|_| {
                 dirs::home_dir()
                     .unwrap_or_else(|| PathBuf::from("."))
-                    .join(".hb_zayfer")
+                    .join(".darkstar")
             });
         Ok(base.join("config.toml"))
     }

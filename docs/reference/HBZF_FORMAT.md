@@ -1,6 +1,6 @@
 # HBZF File Format Specification
 
-**Zayfer Vault v1.1.1**
+**DarkStar v1.1.1**
 
 **Version**: 1 (`0x01`)
 **Status**: Stable
@@ -9,7 +9,7 @@
 
 ## Overview
 
-HBZF (Zayfer Vault Format) is a binary file format for authenticated streaming
+HBZF (DarkStar Format) is a binary file format for authenticated streaming
 encryption. It supports multiple symmetric ciphers, key derivation functions,
 and key wrapping modes.
 
@@ -209,7 +209,7 @@ wrapped_key → RSA-OAEP decrypt(private_key) → symmetric_key
 ephemeral_secret ← random()
 ephemeral_public = X25519(ephemeral_secret, G)
 shared_secret = X25519(ephemeral_secret, recipient_public)
-symmetric_key = HKDF-SHA256(shared_secret, info="HB_Zayfer X25519 encryption key")
+symmetric_key = HKDF-SHA256(shared_secret, info="DarkStar X25519 encryption key")
 ```
 
 The ephemeral public key is stored in the header. No salt is used for HKDF.
@@ -220,14 +220,14 @@ Decryption:
 
 ```
 shared_secret = X25519(recipient_secret, ephemeral_public)
-symmetric_key = HKDF-SHA256(shared_secret, info="HB_Zayfer X25519 encryption key")
+symmetric_key = HKDF-SHA256(shared_secret, info="DarkStar X25519 encryption key")
 ```
 
 ---
 
 ## Compression Layer
 
-Zayfer Vault optionally compresses plaintext before encryption. Compression is
+DarkStar optionally compresses plaintext before encryption. Compression is
 applied **inside** the encrypted container so that an observer cannot
 determine whether compression was used.
 

@@ -1,4 +1,4 @@
-"""Tests for the Zayfer Vault Python bindings.
+"""Tests for the DarkStar Python bindings.
 
 These tests exercise the native (_native) module exposed through hb_zayfer,
 covering symmetric ciphers, KDF, RSA, Ed25519, X25519, OpenPGP, the HBZF
@@ -24,7 +24,7 @@ import pytest
 @pytest.fixture(autouse=True)
 def _isolated_keystore(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
     """Ensure every test gets its own keystore directory."""
-    monkeypatch.setenv("HB_ZAYFER_HOME", str(tmp_path))
+    monkeypatch.setenv("DARKSTAR_HOME", str(tmp_path))
     # Store tmp_path on the module for KeyStore tests to use
     global _ks_path
     _ks_path = str(tmp_path)
@@ -508,7 +508,7 @@ def test_compute_fingerprint():
 
 
 def test_audit_logger_basic(tmp_path: Path):
-    os.environ["HB_ZAYFER_HOME"] = str(tmp_path)
+    os.environ["DARKSTAR_HOME"] = str(tmp_path)
     try:
         # Log something
         hbz.audit_log_key_generated("ED25519", "abc123", "test")
@@ -527,12 +527,12 @@ def test_audit_logger_basic(tmp_path: Path):
         valid = logger.verify_integrity()
         assert valid is True
     finally:
-        if "HB_ZAYFER_HOME" in os.environ:
-            del os.environ["HB_ZAYFER_HOME"]
+        if "DARKSTAR_HOME" in os.environ:
+            del os.environ["DARKSTAR_HOME"]
 
 
 def test_audit_logger_export(tmp_path: Path):
-    os.environ["HB_ZAYFER_HOME"] = str(tmp_path)
+    os.environ["DARKSTAR_HOME"] = str(tmp_path)
     try:
         hbz.audit_log_file_encrypted("AES", "test.txt", 1024, "test")
         logger = hbz.AuditLogger()
@@ -541,13 +541,13 @@ def test_audit_logger_export(tmp_path: Path):
         assert Path(export_path).exists()
         assert Path(export_path).stat().st_size > 0
     finally:
-        if "HB_ZAYFER_HOME" in os.environ:
-            del os.environ["HB_ZAYFER_HOME"]
+        if "DARKSTAR_HOME" in os.environ:
+            del os.environ["DARKSTAR_HOME"]
 
 
 def test_audit_log_convenience_functions(tmp_path: Path):
     """All audit convenience functions should succeed without error."""
-    os.environ["HB_ZAYFER_HOME"] = str(tmp_path)
+    os.environ["DARKSTAR_HOME"] = str(tmp_path)
     try:
         hbz.audit_log_key_generated("ED25519", "fp1", "test")
         hbz.audit_log_file_encrypted("AES", "f.txt", 100, "test")
@@ -561,8 +561,8 @@ def test_audit_log_convenience_functions(tmp_path: Path):
         logger = hbz.AuditLogger()
         assert logger.entry_count() >= 8
     finally:
-        if "HB_ZAYFER_HOME" in os.environ:
-            del os.environ["HB_ZAYFER_HOME"]
+        if "DARKSTAR_HOME" in os.environ:
+            del os.environ["DARKSTAR_HOME"]
 
 
 # ===========================================================================
@@ -571,19 +571,19 @@ def test_audit_log_convenience_functions(tmp_path: Path):
 
 
 def test_keystore_base_path(tmp_path: Path):
-    os.environ["HB_ZAYFER_HOME"] = str(tmp_path)
+    os.environ["DARKSTAR_HOME"] = str(tmp_path)
     try:
         ks = hbz.KeyStore()
         bp = ks.base_path
         assert isinstance(bp, str)
         assert str(tmp_path) in bp
     finally:
-        if "HB_ZAYFER_HOME" in os.environ:
-            del os.environ["HB_ZAYFER_HOME"]
+        if "DARKSTAR_HOME" in os.environ:
+            del os.environ["DARKSTAR_HOME"]
 
 
 def test_keystore_get_key_metadata(tmp_path: Path):
-    os.environ["HB_ZAYFER_HOME"] = str(tmp_path)
+    os.environ["DARKSTAR_HOME"] = str(tmp_path)
     try:
         ks = hbz.KeyStore()
         sk, vk = hbz.ed25519_generate()
@@ -598,12 +598,12 @@ def test_keystore_get_key_metadata(tmp_path: Path):
         assert m.has_public is True
         assert len(m.created_at) > 0
     finally:
-        if "HB_ZAYFER_HOME" in os.environ:
-            del os.environ["HB_ZAYFER_HOME"]
+        if "DARKSTAR_HOME" in os.environ:
+            del os.environ["DARKSTAR_HOME"]
 
 
 def test_keystore_find_keys_by_label(tmp_path: Path):
-    os.environ["HB_ZAYFER_HOME"] = str(tmp_path)
+    os.environ["DARKSTAR_HOME"] = str(tmp_path)
     try:
         ks = hbz.KeyStore()
         sk1, vk1 = hbz.ed25519_generate()
@@ -618,12 +618,12 @@ def test_keystore_find_keys_by_label(tmp_path: Path):
         assert len(found) == 1
         assert found[0].label == "find-me"
     finally:
-        if "HB_ZAYFER_HOME" in os.environ:
-            del os.environ["HB_ZAYFER_HOME"]
+        if "DARKSTAR_HOME" in os.environ:
+            del os.environ["DARKSTAR_HOME"]
 
 
 def test_keystore_update_contact(tmp_path: Path):
-    os.environ["HB_ZAYFER_HOME"] = str(tmp_path)
+    os.environ["DARKSTAR_HOME"] = str(tmp_path)
     try:
         ks = hbz.KeyStore()
         ks.add_contact("Eve", email="eve@old.com", notes="original")
@@ -632,12 +632,12 @@ def test_keystore_update_contact(tmp_path: Path):
         assert c.email == "eve@new.com"
         assert c.notes == "updated"
     finally:
-        if "HB_ZAYFER_HOME" in os.environ:
-            del os.environ["HB_ZAYFER_HOME"]
+        if "DARKSTAR_HOME" in os.environ:
+            del os.environ["DARKSTAR_HOME"]
 
 
 def test_keystore_get_contact(tmp_path: Path):
-    os.environ["HB_ZAYFER_HOME"] = str(tmp_path)
+    os.environ["DARKSTAR_HOME"] = str(tmp_path)
     try:
         ks = hbz.KeyStore()
         ks.add_contact("Dan", email="dan@test.com", notes="a note")
@@ -647,12 +647,12 @@ def test_keystore_get_contact(tmp_path: Path):
         assert c.notes == "a note"
         assert len(c.created_at) > 0
     finally:
-        if "HB_ZAYFER_HOME" in os.environ:
-            del os.environ["HB_ZAYFER_HOME"]
+        if "DARKSTAR_HOME" in os.environ:
+            del os.environ["DARKSTAR_HOME"]
 
 
 def test_keystore_resolve_recipient(tmp_path: Path):
-    os.environ["HB_ZAYFER_HOME"] = str(tmp_path)
+    os.environ["DARKSTAR_HOME"] = str(tmp_path)
     try:
         ks = hbz.KeyStore()
         sk, vk = hbz.ed25519_generate()
@@ -668,12 +668,12 @@ def test_keystore_resolve_recipient(tmp_path: Path):
         resolved = ks.resolve_recipient("Frank")
         assert fp in resolved
     finally:
-        if "HB_ZAYFER_HOME" in os.environ:
-            del os.environ["HB_ZAYFER_HOME"]
+        if "DARKSTAR_HOME" in os.environ:
+            del os.environ["DARKSTAR_HOME"]
 
 
 def test_keystore_backup_verify_restore(tmp_path: Path):
-    os.environ["HB_ZAYFER_HOME"] = str(tmp_path)
+    os.environ["DARKSTAR_HOME"] = str(tmp_path)
     try:
         ks = hbz.KeyStore()
         sk, vk = hbz.ed25519_generate()
@@ -694,8 +694,8 @@ def test_keystore_backup_verify_restore(tmp_path: Path):
         restored = ks.restore_backup(bk_path, b"bkpass")
         assert restored.private_key_count >= 1
     finally:
-        if "HB_ZAYFER_HOME" in os.environ:
-            del os.environ["HB_ZAYFER_HOME"]
+        if "DARKSTAR_HOME" in os.environ:
+            del os.environ["DARKSTAR_HOME"]
 
 
 # ===========================================================================

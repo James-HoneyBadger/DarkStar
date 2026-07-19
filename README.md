@@ -1,4 +1,4 @@
-# Zayfer Vault — Encryption / Decryption Suite
+# DarkStar — Encryption / Decryption Suite
 
 [![CI](https://github.com/James-HoneyBadger/Zayfer_Vault/actions/workflows/ci.yml/badge.svg)](https://github.com/James-HoneyBadger/Zayfer_Vault/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
@@ -10,11 +10,11 @@ A full-featured cryptographic toolkit with a **Rust core**, **Rust-native platfo
 **Python bindings**, **WebAssembly module**, and multiple user interfaces: **Rust CLI**,
 **desktop GUI** (PySide6 compatibility shell), **browser-based web UI**, and a **WASM-powered web target**.
 
-**Version 1.1.1** — Zayfer Vault by James Temple / Honey Badger Universe
+**Version 1.1.1** — DarkStar by James Temple / Honey Badger Universe
 
 ---
 
-## Why Zayfer Vault?
+## Why DarkStar?
 
 - **One toolbox, every surface.** Rust core powers a CLI, desktop GUI, web UI, and WASM target — same primitives, same on-disk format, no impedance mismatch.
 - **Modern, audited primitives.** AES-256-GCM, ChaCha20-Poly1305, Ed25519, X25519, RSA, Argon2id, scrypt — implemented with `RustCrypto` and `sequoia-openpgp`.
@@ -57,7 +57,7 @@ A full-featured cryptographic toolkit with a **Rust core**, **Rust-native platfo
 
 ## Architecture
 
-Zayfer Vault is now **Rust-first**:
+DarkStar is now **Rust-first**:
 
 - `crates/core` contains the cryptographic engine, storage, config, audit, and shared services.
 - `crates/cli` provides the primary CLI and the Rust-native web server.
@@ -177,7 +177,7 @@ Zayfer_Vault/
 
 ## HBZF File Format
 
-The custom **HBZF** (Zayfer Vault Format) uses authenticated streaming encryption:
+The custom **HBZF** (DarkStar Format) uses authenticated streaming encryption:
 
 | Offset | Field | Size |
 |--------|-------|------|
@@ -197,7 +197,7 @@ Key wrapping modes: **Password** (KDF → symmetric key), **RSA-OAEP**, **X25519
 
 ## Test Suite
 
-Zayfer Vault is validated with both Rust and Python regression suites.
+DarkStar is validated with both Rust and Python regression suites.
 The recommended verification command is:
 
 ```bash
@@ -235,7 +235,7 @@ HB_ZAYFER_SKIP_ONBOARDING=1 QT_QPA_PLATFORM=offscreen ./run.sh test
 
 ### 🎯 Quick Links
 
-**New to Zayfer Vault?** Start here:
+**New to DarkStar?** Start here:
 1. [Install](INSTALL.md) → 2. [Quick Start](docs/guides/QUICKSTART.md) → 3. [User Guide](docs/guides/USER_GUIDE.md)
 
 **Want secure communications?** Follow the tutorial:

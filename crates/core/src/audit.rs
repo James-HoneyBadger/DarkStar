@@ -1,7 +1,7 @@
 //! Audit logging for cryptographic operations.
 //!
 //! Provides append-only logging of key operations for security auditing and
-//! accountability. The audit log is stored at `~/.hb_zayfer/audit.log` with
+//! accountability. The audit log is stored at `~/.darkstar/audit.log` with
 //! each entry containing timestamp, operation type, and relevant metadata.
 //!
 //! Log entries are timestamped and include a chain hash for integrity verification.
@@ -215,11 +215,11 @@ impl AuditLogger {
         }
     }
 
-    /// Create an audit logger using the default location (~/.hb_zayfer/audit.log).
+    /// Create an audit logger using the default location (~/.darkstar/audit.log).
     pub fn default_location() -> HbResult<Self> {
         let base_dir = dirs::home_dir()
             .ok_or_else(|| HbError::Config("Could not determine home directory".into()))?;
-        let log_path = base_dir.join(".hb_zayfer").join("audit.log");
+        let log_path = base_dir.join(".darkstar").join("audit.log");
 
         // Ensure the directory exists
         if let Some(parent) = log_path.parent() {

@@ -60,7 +60,7 @@ mod tests {
     fn test_encrypt_decrypt_roundtrip() {
         let mut key = [0u8; 32];
         OsRng.fill_bytes(&mut key);
-        let plaintext = b"Hello, HB_Zayfer! This is AES-256-GCM.";
+        let plaintext = b"Hello, DarkStar! This is AES-256-GCM.";
         let aad = b"additional data";
 
         let (nonce, ciphertext) = encrypt(&key, plaintext, aad).unwrap();

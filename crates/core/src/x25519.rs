@@ -97,7 +97,7 @@ pub fn derive_symmetric_key(
 pub fn encrypt_key_agreement(their_public: &PublicKey) -> HbResult<(PublicKey, [u8; 32])> {
     let (eph_pub, shared_secret) = ephemeral_key_agreement(their_public)?;
     let symmetric_key =
-        derive_symmetric_key(&shared_secret, b"HB_Zayfer X25519 encryption key", None)?;
+        derive_symmetric_key(&shared_secret, b"DarkStar X25519 encryption key", None)?;
     Ok((eph_pub, symmetric_key))
 }
 
@@ -108,7 +108,7 @@ pub fn decrypt_key_agreement(
     ephemeral_public: &PublicKey,
 ) -> HbResult<[u8; 32]> {
     let shared_secret = key_agreement(our_secret, ephemeral_public)?;
-    derive_symmetric_key(&shared_secret, b"HB_Zayfer X25519 encryption key", None)
+    derive_symmetric_key(&shared_secret, b"DarkStar X25519 encryption key", None)
 }
 
 // -- Key serialization --

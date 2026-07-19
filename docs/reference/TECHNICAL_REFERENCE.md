@@ -1,8 +1,8 @@
 # Technical Reference
 
-Compact reference for the **current** Zayfer Vault runtime layout and command surface.
+Compact reference for the **current** DarkStar runtime layout and command surface.
 
-> **Naming note.** Zayfer Vault is the user-facing brand. Internal identifiers
+> **Naming note.** DarkStar is the user-facing brand. Internal identifiers
 > such as the `hb_zayfer` Python package, `hb_zayfer_core` Rust crate, and
 > `HB_ZAYFER_*` environment variables are retained for backward compatibility.
 
@@ -104,7 +104,7 @@ Compact reference for the **current** Zayfer Vault runtime layout and command su
 
 | Variable | Scope |
 |----------|-------|
-| `HB_ZAYFER_HOME` | Shared data directory override for all runtimes |
+| `DARKSTAR_HOME` | Shared data directory override for all runtimes |
 | `HB_ZAYFER_SKIP_ONBOARDING` | GUI/CI convenience flag |
 | `HB_ZAYFER_PORT` | Python compatibility web app only |
 | `HB_ZAYFER_API_TOKEN` | Python compatibility web app only |
@@ -116,11 +116,11 @@ Compact reference for the **current** Zayfer Vault runtime layout and command su
 
 | Path | Purpose |
 |------|---------|
-| `~/.hb_zayfer/keyring.json` | Key metadata index |
-| `~/.hb_zayfer/contacts.json` | Contact store |
-| `~/.hb_zayfer/audit.log` | Tamper-evident audit chain |
-| `~/.hb_zayfer/config.toml` | Core runtime configuration |
-| `~/.hb_zayfer/gui_settings.json` | Desktop UI preferences |
+| `~/.darkstar/keyring.json` | Key metadata index |
+| `~/.darkstar/contacts.json` | Contact store |
+| `~/.darkstar/audit.log` | Tamper-evident audit chain |
+| `~/.darkstar/config.toml` | Core runtime configuration |
+| `~/.darkstar/gui_settings.json` | Desktop UI preferences |
 
 ---
 

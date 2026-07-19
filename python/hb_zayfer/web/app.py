@@ -150,7 +150,7 @@ def main() -> None:
 
     import uvicorn
 
-    parser = argparse.ArgumentParser(description="HB_Zayfer Web Server")
+    parser = argparse.ArgumentParser(description="DarkStar Web Server")
     parser.add_argument("--host", default="127.0.0.1", help="Bind address (default: 127.0.0.1)")
     parser.add_argument(
         "--port",

@@ -176,7 +176,7 @@ class SettingsView(QWidget):
             ks = hbz.KeyStore()
             self.path_input.setText(ks.base_path)
         except Exception:
-            self.path_input.setText("~/.hb_zayfer/")
+            self.path_input.setText("~/.darkstar/")
         self.path_input.setReadOnly(True)
         path_row.addWidget(self.path_input, 1)
         store_layout.addLayout(path_row)
@@ -185,7 +185,7 @@ class SettingsView(QWidget):
 
         info_box = QGroupBox("About")
         info_layout = QVBoxLayout(info_box)
-        info_layout.addWidget(QLabel(f"HB_Zayfer version: {hbz.version()}"))
+        info_layout.addWidget(QLabel(f"DarkStar version: {hbz.version()}"))
         info_layout.addWidget(QLabel("Crypto backend: Rust (RustCrypto + Sequoia-OpenPGP)"))
         info_layout.addWidget(QLabel("GUI toolkit: PySide6 (Qt 6)"))
         info_layout.addWidget(QLabel("License: MIT"))

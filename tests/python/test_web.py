@@ -1,4 +1,4 @@
-"""Tests for the Zayfer Vault web API routes.
+"""Tests for the DarkStar web API routes.
 
 Run with:  pytest tests/python/test_web.py -v
 Requires : maturin develop  (to build native module first)
@@ -21,7 +21,7 @@ from hb_zayfer.web.app import create_app  # noqa: E402
 
 @pytest.fixture(autouse=True)
 def _isolated_keystore(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
-    monkeypatch.setenv("HB_ZAYFER_HOME", str(tmp_path))
+    monkeypatch.setenv("DARKSTAR_HOME", str(tmp_path))
     # Ensure no auth token by default
     monkeypatch.delenv("HB_ZAYFER_API_TOKEN", raising=False)
 
@@ -429,7 +429,7 @@ def test_audit_count(client: TestClient):
 def test_audit_export(client: TestClient, tmp_path: Path):
     # Use a path within the user's home directory
     home = Path.home()
-    dest = str(home / ".hb_zayfer_test_audit_export.json")
+    dest = str(home / ".darkstar_test_audit_export.json")
     try:
         r = client.post("/api/audit/export", params={"destination": dest})
         assert r.status_code == 200
@@ -472,7 +472,7 @@ def test_backup_create_verify_restore(client: TestClient, tmp_path: Path):
 
     # Use a path within the user's home directory
     home = Path.home()
-    backup_path = str(home / ".hb_zayfer_test_backup.hbzf")
+    backup_path = str(home / ".darkstar_test_backup.hbzf")
 
     try:
         # Create backup

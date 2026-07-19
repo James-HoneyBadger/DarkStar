@@ -1,6 +1,6 @@
 use thiserror::Error;
 
-/// Unified error type for the HB_Zayfer crypto core.
+/// Unified error type for the DarkStar crypto core.
 #[derive(Error, Debug)]
 pub enum HbError {
     // -- Crypto errors --
@@ -106,8 +106,8 @@ impl HbError {
             HbError::UnsupportedVersion(v) => {
                 format!(
                     "Unsupported file version: {}\n\n\
-                        This file was created with a newer or older version of HB_Zayfer.\n\n\
-                        Try: Update to the latest version of HB_Zayfer.",
+                        This file was created with a newer or older version of DarkStar.\n\n\
+                        Try: Update to the latest version of DarkStar.",
                     v
                 )
             }
@@ -148,8 +148,8 @@ impl HbError {
                 format!(
                     "Configuration error: {}\n\n\
                         Try:\n\
-                        • Check ~/.hb_zayfer/config.toml for syntax errors\n\
-                        • Reset to defaults: rm ~/.hb_zayfer/config.toml",
+                        • Check ~/.darkstar/config.toml for syntax errors\n\
+                        • Reset to defaults: rm ~/.darkstar/config.toml",
                     msg
                 )
             }
@@ -176,7 +176,7 @@ impl HbError {
     }
 }
 
-/// Result type alias for HB_Zayfer operations.
+/// Result type alias for DarkStar operations.
 pub type HbResult<T> = Result<T, HbError>;
 
 impl From<rsa::Error> for HbError {

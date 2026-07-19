@@ -1,4 +1,4 @@
-"""HB_Zayfer Web Interface — FastAPI backend.
+"""DarkStar Web Interface — FastAPI backend.
 
 .. deprecated:: 1.1.1
     The FastAPI web backend is superseded by the Rust-native platform server

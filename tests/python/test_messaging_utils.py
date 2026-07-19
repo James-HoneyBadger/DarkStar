@@ -15,7 +15,7 @@ from hb_zayfer.gui.messaging_utils import create_message_package, decrypt_messag
 
 @pytest.fixture(autouse=True)
 def _isolated_keystore(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
-    monkeypatch.setenv("HB_ZAYFER_HOME", str(tmp_path))
+    monkeypatch.setenv("DARKSTAR_HOME", str(tmp_path))
 
 
 def _store_rsa_key(label: str, passphrase: bytes) -> str:

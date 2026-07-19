@@ -1,13 +1,13 @@
-# Zayfer Vault Documentation
+# DarkStar Documentation
 
-This documentation set reflects the **current Rust-first configuration** of Zayfer Vault.
+This documentation set reflects the **current Rust-first configuration** of DarkStar.
 Use the launcher for the supported paths:
 
 - `./run.sh gui` — desktop GUI
 - `./run.sh web` — Rust-native browser platform
 - `./run.sh cli ...` — Rust CLI
 
-> Product branding is **Zayfer Vault**, while compatibility names such as `hb_zayfer` and `HB_ZAYFER_*` remain in package imports and environment variables.
+> Product branding is **DarkStar**, while compatibility names such as `hb_zayfer` and `HB_ZAYFER_*` remain in package imports and environment variables.
 
 ---
 

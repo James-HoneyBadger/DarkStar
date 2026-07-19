@@ -1,6 +1,6 @@
 # Python API Reference
 
-**Zayfer Vault v1.1.1**
+**DarkStar v1.1.1**
 
 Complete reference for the `hb_zayfer` Python package — the **Rust-backed compatibility API** exposed through PyO3 bindings.
 Heavy cryptographic operations still execute in native Rust.
@@ -545,7 +545,7 @@ Manages cryptographic keys and contacts on disk.
 ks = hbz.KeyStore(path: Optional[str] = None)
 ```
 
-If `path` is `None`, uses `$HB_ZAYFER_HOME` or `~/.hb_zayfer/`.
+If `path` is `None`, uses `$DARKSTAR_HOME` or `~/.darkstar/`.
 
 ### Key Operations
 

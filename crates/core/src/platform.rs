@@ -21,7 +21,7 @@ impl AppInfo {
     /// Return the current application identity.
     pub fn current() -> Self {
         Self {
-            brand_name: "Zayfer Vault",
+            brand_name: "DarkStar",
             binary_name: "hb-zayfer",
             package_name: "hb_zayfer",
             version: env!("CARGO_PKG_VERSION"),
@@ -49,9 +49,9 @@ impl AppPaths {
         let user_home = dirs::home_dir()
             .ok_or_else(|| HbError::Config("Could not determine home directory".into()))?;
 
-        let app_home = std::env::var("HB_ZAYFER_HOME")
+        let app_home = std::env::var("DARKSTAR_HOME")
             .map(PathBuf::from)
-            .unwrap_or_else(|_| user_home.join(".hb_zayfer"));
+            .unwrap_or_else(|_| user_home.join(".darkstar"));
 
         Ok(Self {
             user_home,
@@ -107,7 +107,7 @@ mod tests {
     #[test]
     fn app_info_is_consistent() {
         let info = AppInfo::current();
-        assert_eq!(info.brand_name, "Zayfer Vault");
+        assert_eq!(info.brand_name, "DarkStar");
         assert!(info.window_title().contains(info.version));
     }
 

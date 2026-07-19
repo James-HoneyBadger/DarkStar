@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Build distributable packages for HB_Zayfer.
+# Build distributable packages for DarkStar.
 #
 # Usage:
 #   ./scripts/package.sh              # auto-detect platform
@@ -22,7 +22,7 @@ NAME="hb-zayfer"
 DESCRIPTION="A full-featured encryption/decryption suite"
 MAINTAINER="James Temple <james@honey-badger.org>"
 LICENSE="MIT"
-URL="https://github.com/james/HB_Zayfer"
+URL="https://github.com/james/DarkStar"
 
 DIST_DIR="dist"
 mkdir -p "$DIST_DIR"
@@ -84,7 +84,7 @@ Priority: optional
 Architecture: $ARCH
 Maintainer: $MAINTAINER
 Description: $DESCRIPTION
- HB_Zayfer provides AES-256-GCM, ChaCha20-Poly1305, RSA, Ed25519,
+ DarkStar provides AES-256-GCM, ChaCha20-Poly1305, RSA, Ed25519,
  X25519, and OpenPGP cryptographic operations with a CLI, GUI, and
  web interface.
 Homepage: $URL
@@ -131,7 +131,7 @@ URL:            $URL
 Source0:        %{name}-%{version}.tar.gz
 
 %description
-HB_Zayfer encryption suite providing AES-256-GCM, ChaCha20-Poly1305,
+DarkStar encryption suite providing AES-256-GCM, ChaCha20-Poly1305,
 RSA, Ed25519, X25519, and OpenPGP operations.
 
 %prep
@@ -175,7 +175,7 @@ pkgver=1.0.1
 pkgrel=1
 pkgdesc="A full-featured encryption/decryption suite"
 arch=('x86_64' 'aarch64')
-url="https://github.com/james/HB_Zayfer"
+url="https://github.com/james/DarkStar"
 license=('MIT')
 depends=()
 makedepends=('rust' 'cargo')
@@ -215,7 +215,7 @@ build_appimage() {
     # Desktop entry
     cat > "$APP_DIR/$NAME.desktop" <<EOF
 [Desktop Entry]
-Name=Zayfer Vault
+Name=DarkStar
 Comment=$DESCRIPTION
 Exec=$NAME
 Icon=$NAME
@@ -249,7 +249,7 @@ build_macos() {
     log "Building macOS .app bundle…"
     CLI_BIN=$(build_cli)
 
-    APP_BUNDLE="$DIST_DIR/Zayfer Vault.app"
+    APP_BUNDLE="$DIST_DIR/DarkStar.app"
     rm -rf "$APP_BUNDLE"
     mkdir -p "$APP_BUNDLE/Contents/MacOS"
     mkdir -p "$APP_BUNDLE/Contents/Resources"
@@ -264,7 +264,7 @@ build_macos() {
 <plist version="1.0">
 <dict>
     <key>CFBundleName</key>
-    <string>Zayfer Vault</string>
+    <string>DarkStar</string>
     <key>CFBundleIdentifier</key>
     <string>org.honey-badger.hb-zayfer</string>
     <key>CFBundleVersion</key>
@@ -286,7 +286,7 @@ EOF
     # Optionally create DMG
     if command -v hdiutil &>/dev/null; then
         DMG_FILE="$DIST_DIR/${NAME}-${VERSION}.dmg"
-        hdiutil create -volname "Zayfer Vault" -srcfolder "$APP_BUNDLE" -ov "$DMG_FILE"
+        hdiutil create -volname "DarkStar" -srcfolder "$APP_BUNDLE" -ov "$DMG_FILE"
         log "DMG created at $DMG_FILE"
     fi
 }

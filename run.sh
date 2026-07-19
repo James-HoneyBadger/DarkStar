@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ──────────────────────────────────────────────────────────────────────
-#  Zayfer Vault — Application Launcher
+#  DarkStar — Application Launcher
 #
 #  Usage:
 #    ./run.sh              Launch the desktop GUI (default)
@@ -19,7 +19,7 @@ PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 VENV_DIR="$PROJECT_DIR/.venv"
 PYTHON="${VENV_DIR}/bin/python"
 MATURIN_MANIFEST="crates/python/Cargo.toml"
-APP_NAME="Zayfer Vault"
+APP_NAME="DarkStar"
 APP_VERSION="$(awk -F'"' '/^version = / {print $2; exit}' "$PROJECT_DIR/Cargo.toml")"
 
 # ── Colours ──────────────────────────────────────────────────────────

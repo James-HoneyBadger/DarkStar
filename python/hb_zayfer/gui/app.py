@@ -12,9 +12,9 @@ from hb_zayfer.gui.theme import Theme
 
 
 def main() -> None:
-    """Launch the Zayfer Vault desktop application."""
+    """Launch the DarkStar desktop application."""
     app = QApplication(sys.argv)
-    app.setApplicationName("Zayfer Vault")
+    app.setApplicationName("DarkStar")
     app.setOrganizationName("Honey Badger Universe")
     # Keep displayName empty to prevent GNOME from appending it to window title
     app.setApplicationDisplayName("")

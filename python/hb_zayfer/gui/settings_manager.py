@@ -3,11 +3,15 @@
 from __future__ import annotations
 
 import json
+import logging
 import threading
 from pathlib import Path
 from typing import Any
 
 from hb_zayfer.services import AppPaths
+
+
+logger = logging.getLogger(__name__)
 
 
 class SettingsManager:
@@ -23,10 +27,10 @@ class SettingsManager:
         """Load settings from disk."""
         if self.settings_file.exists():
             try:
-                with open(self.settings_file) as f:
+                with open(self.settings_file, encoding="utf-8") as f:
                     return json.load(f)
-            except Exception:
-                pass
+            except Exception as exc:
+                logger.warning("Failed to load GUI settings from %s: %s", self.settings_file, exc)
         return self._default_settings()
 
     def _default_settings(self) -> dict[str, Any]:
@@ -61,10 +65,12 @@ class SettingsManager:
         with self._lock:
             try:
                 self.config_dir.mkdir(parents=True, exist_ok=True)
-                with open(self.settings_file, "w") as f:
+                tmp = self.settings_file.with_suffix(".tmp")
+                with open(tmp, "w", encoding="utf-8") as f:
                     json.dump(self.settings, f, indent=2)
+                tmp.replace(self.settings_file)
             except Exception as e:
-                print(f"Failed to save settings: {e}")
+                logger.exception("Failed to save settings to %s: %s", self.settings_file, e)
 
     def get(self, key: str, default: Any = None) -> Any:
         """Get a setting value by dot-notation key.
@@ -97,7 +103,7 @@ class SettingsManager:
         keys = key.split(".")
         target: Any = self.settings
         for k in keys[:-1]:
-            if k not in target:
+            if k not in target or not isinstance(target[k], dict):
                 target[k] = {}
             target = target[k]
         target[keys[-1]] = value
@@ -177,7 +183,7 @@ class CryptoConfig:
 
             return Path(hbz.KeyStore().base_path) / "config.json"
         except Exception:
-            return Path.home() / ".hb_zayfer" / "config.json"
+            return Path.home() / ".darkstar" / "config.json"
 
     def load(self) -> dict[str, Any]:
         cfg = dict(_CRYPTO_DEFAULTS)
@@ -186,8 +192,8 @@ class CryptoConfig:
             try:
                 with open(p, encoding="utf-8") as f:
                     cfg.update(json.load(f))
-            except Exception:
-                pass
+            except Exception as exc:
+                logger.warning("Failed to load crypto config from %s: %s", p, exc)
         return cfg
 
     def save(self, cfg: dict[str, Any]) -> None:
@@ -202,6 +208,25 @@ class CryptoConfig:
     def default_cipher(self) -> str:
         return self.load().get("cipher", "AES-256-GCM")
 
+    @staticmethod
+    def _safe_int(cfg: dict[str, Any], key: str, default: int, minimum: int, maximum: int) -> int:
+        raw = cfg.get(key, default)
+        try:
+            value = int(raw)
+        except (TypeError, ValueError):
+            logger.warning("Invalid integer value for %s=%r; using default %d", key, raw, default)
+            return default
+        if value < minimum or value > maximum:
+            logger.warning(
+                "Out-of-range integer for %s=%r; clamping to [%d, %d]",
+                key,
+                raw,
+                minimum,
+                maximum,
+            )
+            return max(minimum, min(value, maximum))
+        return value
+
     def kdf_settings(self) -> dict[str, Any]:
         """Return KDF parameters in the form expected by ``hbz`` encrypt calls."""
         cfg = self.load()
@@ -209,12 +234,12 @@ class CryptoConfig:
         if kdf_name == "scrypt":
             return {
                 "kdf": "scrypt",
-                "kdf_log_n": int(cfg.get("scrypt_log_n", 15)),
-                "kdf_r": int(cfg.get("scrypt_r", 8)),
-                "kdf_p": int(cfg.get("scrypt_p", 1)),
+                "kdf_log_n": self._safe_int(cfg, "scrypt_log_n", 15, 10, 22),
+                "kdf_r": self._safe_int(cfg, "scrypt_r", 8, 1, 32),
+                "kdf_p": self._safe_int(cfg, "scrypt_p", 1, 1, 16),
             }
         return {
             "kdf": "argon2id",
-            "kdf_memory_kib": int(cfg.get("argon2_memory_mib", 64)) * 1024,
-            "kdf_iterations": int(cfg.get("argon2_iterations", 3)),
+            "kdf_memory_kib": self._safe_int(cfg, "argon2_memory_mib", 64, 16, 4096) * 1024,
+            "kdf_iterations": self._safe_int(cfg, "argon2_iterations", 3, 1, 100),
         }

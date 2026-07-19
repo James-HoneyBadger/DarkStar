@@ -1,0 +1,12 @@
+/home/james/DarkStar/dotnet/src/DarkStar.Domain/bin/Debug/net8.0/DarkStar.Domain.deps.json
+/home/james/DarkStar/dotnet/src/DarkStar.Domain/bin/Debug/net8.0/DarkStar.Domain.dll
+/home/james/DarkStar/dotnet/src/DarkStar.Domain/bin/Debug/net8.0/DarkStar.Domain.pdb
+/home/james/DarkStar/dotnet/src/DarkStar.Domain/obj/Debug/net8.0/DarkStar.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/james/DarkStar/dotnet/src/DarkStar.Domain/obj/Debug/net8.0/DarkStar.Domain.AssemblyInfoInputs.cache
+/home/james/DarkStar/dotnet/src/DarkStar.Domain/obj/Debug/net8.0/DarkStar.Domain.AssemblyInfo.cs
+/home/james/DarkStar/dotnet/src/DarkStar.Domain/obj/Debug/net8.0/DarkStar.Domain.csproj.CoreCompileInputs.cache
+/home/james/DarkStar/dotnet/src/DarkStar.Domain/obj/Debug/net8.0/DarkStar.Domain.sourcelink.json
+/home/james/DarkStar/dotnet/src/DarkStar.Domain/obj/Debug/net8.0/DarkStar.Domain.dll
+/home/james/DarkStar/dotnet/src/DarkStar.Domain/obj/Debug/net8.0/refint/DarkStar.Domain.dll
+/home/james/DarkStar/dotnet/src/DarkStar.Domain/obj/Debug/net8.0/DarkStar.Domain.pdb
+/home/james/DarkStar/dotnet/src/DarkStar.Domain/obj/Debug/net8.0/ref/DarkStar.Domain.dll

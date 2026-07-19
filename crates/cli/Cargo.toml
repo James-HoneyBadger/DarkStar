@@ -4,7 +4,7 @@ version.workspace = true
 edition.workspace = true
 authors.workspace = true
 license.workspace = true
-description = "CLI binary for HB_Zayfer encryption suite"
+description = "CLI binary for DarkStar encryption suite"
 # Binary distributed via GitHub releases / scripts/package.sh, not crates.io.
 publish = false
 

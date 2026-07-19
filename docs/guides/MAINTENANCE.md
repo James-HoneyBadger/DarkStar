@@ -1,6 +1,6 @@
 # Maintenance Guide
 
-Operational maintenance, upgrades, and recovery procedures for Zayfer Vault.
+Operational maintenance, upgrades, and recovery procedures for DarkStar.
 
 This document is intended for desktop users, administrators, and maintainers who want the application to remain **secure, recoverable, and up to date**.
 
@@ -103,7 +103,7 @@ rustup default stable
 
 ### Why rebuild after updates?
 
-Zayfer Vault uses a Rust core exposed to Python via PyO3. If:
+DarkStar uses a Rust core exposed to Python via PyO3. If:
 
 - Python version changes,
 - Rust dependencies change, or
@@ -154,7 +154,7 @@ Suggested process:
 
 | Variable | Purpose |
 |---|---|
-| `HB_ZAYFER_HOME` | Override the default keystore/config directory |
+| `DARKSTAR_HOME` | Override the default keystore/config directory |
 | `HB_ZAYFER_API_TOKEN` | Require bearer-token auth for the web API |
 | `HB_ZAYFER_RATE_LIMIT` | Set the per-IP API request limit |
 | `HB_ZAYFER_RATE_WINDOW` | Set the rate-limit time window in seconds |
@@ -162,7 +162,7 @@ Suggested process:
 | `HB_ZAYFER_SKIP_ONBOARDING` | Skip the first-run prompt for headless testing/CI |
 
 > **Compatibility note:** the environment-variable prefix remains `HB_ZAYFER_`
-after the Zayfer Vault rebrand so existing automation continues to work.
+after the DarkStar rebrand so existing automation continues to work.
 
 ---
 

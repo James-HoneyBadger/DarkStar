@@ -1,6 +1,6 @@
 # Breaking Changes Log
 
-**Project**: HB_Zayfer  
+**Project**: DarkStar  
 **Refactoring**: v0.1.0 → v0.2.0  
 **Status**: Planning Phase
 

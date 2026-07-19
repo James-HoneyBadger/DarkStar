@@ -1,6 +1,6 @@
 # Quick Start Guide
 
-Get Zayfer Vault running quickly with the **current Rust-first launcher**.
+Get DarkStar running quickly with the **current Rust-first launcher**.
 
 ---
 
@@ -70,7 +70,7 @@ cat secret.txt
 ./run.sh cli keys export <fingerprint> --output my_public_key.pem
 ```
 
-Your key material and config are stored under `~/.hb_zayfer/` unless you override the path with `HB_ZAYFER_HOME`.
+Your key material and config are stored under `~/.darkstar/` unless you override the path with `DARKSTAR_HOME`.
 
 ---
 

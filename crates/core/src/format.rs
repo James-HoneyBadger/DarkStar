@@ -1,4 +1,4 @@
-//! HB_Zayfer file encryption format (HBZF).
+//! DarkStar file encryption format (HBZF).
 //!
 //! Binary format:
 //! ```text
@@ -666,7 +666,7 @@ mod tests {
         let mut key = vec![0u8; 32];
         OsRng.fill_bytes(&mut key);
 
-        let plaintext = b"Hello HB_Zayfer! This is a test of streaming encryption.";
+        let plaintext = b"Hello DarkStar! This is a test of streaming encryption.";
         let params = EncryptParams {
             algorithm: SymmetricAlgorithm::ChaCha20Poly1305,
             wrapping: KeyWrapping::Password,

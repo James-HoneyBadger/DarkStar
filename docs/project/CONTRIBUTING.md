@@ -1,6 +1,6 @@
 # Contributing Guide
 
-Thank you for your interest in contributing to **Zayfer Vault**! This guide
+Thank you for your interest in contributing to **DarkStar**! This guide
 covers project setup, code standards, testing, and the pull-request workflow.
 
 ---
@@ -20,7 +20,7 @@ covers project setup, code standards, testing, and the pull-request workflow.
 ## Repository Layout
 
 ```text
-HB_Zayfer/
+DarkStar/
 ├── crates/
 │   ├── core/      # Rust crypto, storage, audit, backup, config, shared services
 │   ├── cli/       # Rust CLI plus the Rust-native web server

@@ -184,7 +184,7 @@ def decrypt_message_package(
     try:
         package = json.loads(package_text)
     except json.JSONDecodeError as exc:
-        raise ValueError("The message is not a valid Zayfer Vault message package.") from exc
+        raise ValueError("The message is not a valid DarkStar message package.") from exc
 
     if package.get("format") != _MESSAGE_FORMAT:
         raise ValueError("Unsupported message format.")

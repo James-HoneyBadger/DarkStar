@@ -1,8 +1,8 @@
 # Architecture
 
-**Zayfer Vault v1.1.1**
+**DarkStar v1.1.1**
 
-This document describes the current **Rust-first** architecture of Zayfer Vault.
+This document describes the current **Rust-first** architecture of DarkStar.
 Rust owns the cryptographic core, the primary CLI, and the browser-facing server.
 Python remains for the PyO3 compatibility bridge and the desktop GUI shell.
 
@@ -133,10 +133,10 @@ Chunk index is also appended to AAD to prevent chunk reordering.
 
 ### `keystore` — Key & Contact Storage
 
-On-disk layout at `~/.hb_zayfer/` (or `$HB_ZAYFER_HOME`):
+On-disk layout at `~/.darkstar/` (or `$DARKSTAR_HOME`):
 
 ```text
-~/.hb_zayfer/
+~/.darkstar/
 ├── keys/
 │   ├── private/<fingerprint>.key
 │   └── public/<fingerprint>.pub
@@ -243,7 +243,7 @@ I/O, serialization, contacts, and format errors.
 Re-exports all `_native` symbols into the top-level `hb_zayfer` namespace.
 `__version__` is dynamically set from the Rust library via `version()`.
 
-> **Compatibility note:** the public product name is **Zayfer Vault**, while the
+> **Compatibility note:** the public product name is **DarkStar**, while the
 > import path and environment-variable prefix remain `hb_zayfer` / `HB_ZAYFER_`
 > for backwards compatibility.
 

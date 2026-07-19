@@ -1,4 +1,4 @@
-//! PyO3 bindings for the HB_Zayfer encryption suite.
+//! PyO3 bindings for the DarkStar encryption suite.
 //!
 //! Exposes all core cryptographic operations to Python via the `hb_zayfer._native` module.
 //! Key interchange format:
@@ -920,7 +920,7 @@ fn decrypt_file(
 // KeyStore Python wrapper
 // ---------------------------------------------------------------------------
 
-/// Python wrapper for the HB_Zayfer key store.
+/// Python wrapper for the DarkStar key store.
 #[pyclass(name = "KeyStore")]
 struct PyKeyStore {
     inner: keystore::KeyStore,
@@ -928,7 +928,7 @@ struct PyKeyStore {
 
 #[pymethods]
 impl PyKeyStore {
-    /// Open the default key store at ~/.hb_zayfer/
+    /// Open the default key store at ~/.darkstar/
     #[new]
     #[pyo3(signature = (path = None))]
     fn new(path: Option<&str>) -> PyResult<Self> {
@@ -1672,7 +1672,7 @@ fn version() -> &'static str {
 // Module definition
 // ---------------------------------------------------------------------------
 
-/// HB_Zayfer native cryptographic operations.
+/// DarkStar native cryptographic operations.
 #[pymodule]
 fn _native(m: &Bound<'_, PyModule>) -> PyResult<()> {
     // Version

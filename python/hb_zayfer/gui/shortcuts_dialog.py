@@ -21,7 +21,7 @@ from PySide6.QtWidgets import (
 # (Shortcut, Description) pairs grouped logically.
 SHORTCUTS: list[tuple[str, str]] = [
     # Application
-    ("Ctrl+Q", "Quit Zayfer Vault"),
+    ("Ctrl+Q", "Quit DarkStar"),
     ("F1", "Show this Keyboard Shortcuts dialog"),
     # Navigation
     ("Alt+1", "Go to Encrypt"),

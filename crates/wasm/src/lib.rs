@@ -1,7 +1,7 @@
-//! HB_Zayfer WASM — Cryptographic operations for the browser.
+//! DarkStar WASM — Cryptographic operations for the browser.
 //!
 //! This crate provides JavaScript-callable bindings (via `wasm-bindgen`) for
-//! the most-used HB_Zayfer crypto primitives.  It intentionally omits modules
+//! the most-used DarkStar crypto primitives.  It intentionally omits modules
 //! that depend on system libraries (OpenPGP / sequoia, file I/O) and instead
 //! exposes a focused API suitable for web applications.
 //!
@@ -377,7 +377,7 @@ pub fn random_password(
 // Utilities
 // ---------------------------------------------------------------------------
 
-/// HB_Zayfer WASM module version.
+/// DarkStar WASM module version.
 #[wasm_bindgen]
 pub fn version() -> String {
     env!("CARGO_PKG_VERSION").to_string()

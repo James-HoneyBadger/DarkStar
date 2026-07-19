@@ -1,8 +1,8 @@
 # Installation Guide
 
-**Zayfer Vault v1.1.1**
+**DarkStar v1.1.1**
 
-Complete installation instructions for the current **Rust-first** Zayfer Vault workspace on Linux, macOS, and Windows.
+Complete installation instructions for the current **Rust-first** DarkStar workspace on Linux, macOS, and Windows.
 
 ---
 
@@ -99,7 +99,7 @@ pip install -e ".[all]"
 maturin develop --release -m crates/python/Cargo.toml
 
 # Verify installation
-python -c "import hb_zayfer; print(f'✓ Zayfer Vault {hb_zayfer.version()} installed successfully')"
+python -c "import hb_zayfer; print(f'✓ DarkStar {hb_zayfer.version()} installed successfully')"
 ```
 
 ---
@@ -125,7 +125,7 @@ and launches the requested interface.
 
 ### Branding and Compatibility Note
 
-The product is now called **Zayfer Vault**, but some internal identifiers still
+The product is now called **DarkStar**, but some internal identifiers still
 use the original compatibility names:
 
 - Python package: `hb_zayfer`
@@ -143,7 +143,7 @@ If you prefer manual setup, follow the steps below.
 
 ### Step 1: Install Rust Toolchain
 
-Zayfer Vault's core cryptographic engine is written in Rust. Install it using rustup:
+DarkStar's core cryptographic engine is written in Rust. Install it using rustup:
 
 ```bash
 # Download and install Rust
@@ -192,7 +192,7 @@ source .venv/bin/activate  # Linux/macOS
 .venv\Scripts\activate.bat # Windows CMD
 ```
 
-> **Note**: You need to activate the virtual environment every time you open a new terminal to work with Zayfer Vault.
+> **Note**: You need to activate the virtual environment every time you open a new terminal to work with DarkStar.
 
 ### Step 4: Install Python Build Tools
 
@@ -277,7 +277,7 @@ python -c "import hb_zayfer; print(f'Version: {hb_zayfer.version()}')"
 
 ### Step 8: Build WASM Module (Optional)
 
-If you want to use Zayfer Vault in the browser or Node.js:
+If you want to use DarkStar in the browser or Node.js:
 
 ```bash
 # Install wasm-pack
@@ -563,7 +563,7 @@ rm -rf .venv
 cargo clean
 
 # Remove keystore (CAUTION: This deletes your keys!)
-rm -rf ~/.hb_zayfer/
+rm -rf ~/.darkstar/
 
 # Uninstall Rust (optional)
 rustup self uninstall

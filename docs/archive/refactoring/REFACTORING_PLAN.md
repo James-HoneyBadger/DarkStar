@@ -1,4 +1,4 @@
-# HB_Zayfer Refactoring Plan
+# DarkStar Refactoring Plan
 
 **Date**: March 8, 2026  
 **Version**: 1.0  
@@ -8,7 +8,7 @@
 
 ## Executive Summary
 
-This document outlines a comprehensive refactoring plan for HB_Zayfer to address code duplication (~600-700 lines), missing abstractions, inconsistent error handling, and architectural issues. The plan is structured in 5 phases over an estimated 8-12 weeks, prioritized by impact and risk.
+This document outlines a comprehensive refactoring plan for DarkStar to address code duplication (~600-700 lines), missing abstractions, inconsistent error handling, and architectural issues. The plan is structured in 5 phases over an estimated 8-12 weeks, prioritized by impact and risk.
 
 **Key Goals**:
 - Reduce code duplication by 60-70%
@@ -303,7 +303,7 @@ pub enum CryptoError {
 ```python
 # Create exception hierarchy in Python
 class HbZayferError(Exception):
-    """Base exception for HB_Zayfer"""
+    """Base exception for DarkStar"""
     pass
 
 class CryptoError(HbZayferError):

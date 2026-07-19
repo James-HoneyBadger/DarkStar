@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to Zayfer Vault will be documented in this file.
+All notable changes to DarkStar will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -196,7 +196,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   provider, no C toolchain required). Mismatched flag pairs are rejected and
   the startup banner advertises `https://` URLs when TLS is active.
 - **One-shot self-signed TLS.** New `--auto-tls` flag generates (and
-  caches) a self-signed certificate under `~/.hb_zayfer/tls/` valid for
+  caches) a self-signed certificate under `~/.darkstar/tls/` valid for
   `localhost`, `127.0.0.1`, `::1`, and the bind host. The private key is
   written with `0600` permissions. Intended for local development only;
   mutually exclusive with `--tls-cert`/`--tls-key`.
@@ -240,7 +240,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Refreshed `_native.pyi` stubs (PEP 604 unions, declared exception types).
 - Python lint job in CI (`ruff check`, `ruff format --check`, `mypy`); Python
   3.10 added to the test matrix.
-- README badges, "Why Zayfer Vault?" value-proposition section, and table of
+- README badges, "Why DarkStar?" value-proposition section, and table of
   contents.
 
 ### Changed
@@ -311,7 +311,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Rebranded the user-facing application from HB Zayfer to Zayfer Vault while preserving internal compatibility.
+- Rebranded the user-facing application to DarkStar while preserving internal compatibility.
 - Refined launcher diagnostics and onboarding so setup and recovery are clearer on fresh installs.
 
 ### Improved

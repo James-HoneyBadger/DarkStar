@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Build the HB_Zayfer WASM module for browser usage.
+# Build the DarkStar WASM module for browser usage.
 #
 # Prerequisites:
 #   cargo install wasm-pack
@@ -16,7 +16,7 @@ TARGET="${1:-web}"
 CRATE="crates/wasm"
 OUT_DIR="pkg/wasm"
 
-echo "Building HB_Zayfer WASM for target: $TARGET"
+echo "Building DarkStar WASM for target: $TARGET"
 
 if ! command -v wasm-pack &>/dev/null; then
     echo "wasm-pack not found. Install with: cargo install wasm-pack"

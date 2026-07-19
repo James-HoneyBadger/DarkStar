@@ -10,12 +10,16 @@ from __future__ import annotations
 import base64
 import contextlib
 import json
+import logging
 import os
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
 import hb_zayfer as hbz
+
+
+logger = logging.getLogger(__name__)
 
 
 def _audit_safe(fn, *args, **kwargs) -> None:
@@ -35,11 +39,11 @@ class AppPaths:
     @classmethod
     def current(cls) -> AppPaths:
         user_home = Path.home().expanduser().resolve()
-        raw_app_home = os.environ.get("HB_ZAYFER_HOME")
+        raw_app_home = os.environ.get("DARKSTAR_HOME")
         if raw_app_home:
             app_home = Path(raw_app_home).expanduser().resolve()
         else:
-            app_home = user_home / ".hb_zayfer"
+            app_home = user_home / ".darkstar"
         return cls(user_home=user_home, home_dir=app_home, config_dir=app_home)
 
     def resolve_user_path(self, raw_path: str, field_name: str = "path") -> Path:
@@ -73,7 +77,7 @@ class AppInfo:
 
     @classmethod
     def current(cls) -> AppInfo:
-        return cls(brand_name="Zayfer Vault", version=hbz.version())
+        return cls(brand_name="DarkStar", version=hbz.version())
 
 
 @dataclass(frozen=True)
@@ -134,7 +138,6 @@ class KeyService:
             "x25519": "x25519",
             "pgp": "pgp",
             "gpg": "pgp",
-            "pgpgpg": "pgp",
         }
         normalized = mapping.get(value)
         if not normalized:
@@ -312,8 +315,8 @@ class ConfigService:
             try:
                 with open(path, encoding="utf-8") as handle:
                     config.update(json.load(handle))
-            except Exception:
-                pass
+            except Exception as exc:
+                logger.warning("Failed to load config from %s: %s", path, exc)
         return config
 
     @classmethod
